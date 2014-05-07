@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CrowdSourceDiscovery.Contracts.Dtos.Dto;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
 using CrowdSourceDiscovery.EntityFramework.DataLayer.EntityObjects;
@@ -33,6 +34,13 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
         {
             return ToDto(Context.Connections.First(c => c.Id == id));
         }
+
+        public IEnumerable<ConnectionDto> GetAll()
+        {
+            var connections = Context.Connections.ToList();
+            return connections.Select(ToDto);
+        }
+ 
 
         private ConnectionDto ToDto(Connection connection)
         {

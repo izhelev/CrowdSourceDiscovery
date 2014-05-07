@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using CrowdSourceDiscovery.Domain;
 
 namespace CrowdSourceDiscovery.Interfaces.Repository
@@ -6,5 +7,6 @@ namespace CrowdSourceDiscovery.Interfaces.Repository
     {
         void Save(Connection connection);
         Connection GetConnection(int id);
+        IEnumerable<Connection> GetAll();
     }
 }

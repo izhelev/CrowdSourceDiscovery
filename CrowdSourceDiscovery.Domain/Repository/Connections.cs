@@ -1,4 +1,6 @@
-﻿using CrowdSourceDiscovery.Contracts.Dtos.Dto;
+﻿using System.Collections.Generic;
+using System.Linq;
+using CrowdSourceDiscovery.Contracts.Dtos.Dto;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
 using CrowdSourceDiscovery.Domain;
 using CrowdSourceDiscovery.Interfaces.Repository;
@@ -37,6 +39,11 @@ namespace CrowdSourceDiscovery.Repository
         public Connection GetConnection(int id)
         {
             return ToEntity(_connectiondao.Select(id));
+        }
+
+        public IEnumerable<Connection> GetAll()
+        {
+           return _connectiondao.GetAll().Select(ToEntity);
         }
 
         private static ConnectionDto ToDto(Connection connection)

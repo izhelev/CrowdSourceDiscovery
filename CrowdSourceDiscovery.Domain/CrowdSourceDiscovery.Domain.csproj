@@ -7,8 +7,8 @@
     <ProjectGuid>{D51AF29B-7B1B-4F50-AB25-7C8A3FF1666B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrowdSourceDiscovery</RootNamespace>
-    <AssemblyName>CrowdSourceDiscovery</AssemblyName>
+    <RootNamespace>CrowdSourceDiscovery.Domain</RootNamespace>
+    <AssemblyName>CrowdSourceDiscovery.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
