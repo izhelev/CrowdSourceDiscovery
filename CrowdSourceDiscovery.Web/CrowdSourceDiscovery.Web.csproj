@@ -354,6 +354,10 @@
       <Project>{b2793d32-27f1-49bf-8800-9c60fa010c74}</Project>
       <Name>CrowdSourceDiscovery.DataLayer.EntityFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CrowdSourceDiscovery.Services\CrowdSourceDiscovery.Services.csproj">
+      <Project>{df7dd939-49ad-47b5-ab08-0967cea346bf}</Project>
+      <Name>CrowdSourceDiscovery.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

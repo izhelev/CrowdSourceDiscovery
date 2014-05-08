@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CrowdSourceDiscovery.Domain;
 
-namespace CrowdSourceDiscovery.Interfaces.Repository
+namespace CrowdSourceDiscovery.Services.Interfaces
 {
     public interface ILinks
     {

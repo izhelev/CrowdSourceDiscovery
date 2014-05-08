@@ -4,9 +4,9 @@ using System.Linq;
 using CrowdSourceDiscovery.Contracts.Dtos.Dto;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
 using CrowdSourceDiscovery.Domain;
-using CrowdSourceDiscovery.Interfaces.Repository;
+using CrowdSourceDiscovery.Services.Interfaces;
 
-namespace CrowdSourceDiscovery.Repository
+namespace CrowdSourceDiscovery.Services
 {
     public class Comments : IComments
     {

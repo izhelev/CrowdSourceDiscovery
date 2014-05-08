@@ -2,8 +2,8 @@
 using System.Web.Mvc;
 using CrowdSourceDiscovery.Domain;
 using CrowdSourceDiscovery.Domain.Domain;
-using CrowdSourceDiscovery.Interfaces.Repository;
 using CrowdSourceDiscovery.Web.Models;
+using CrowdSourceDiscovery.Services.Interfaces;
 
 namespace CrowdSourceDiscovery.Web.Controllers
 {

@@ -1,10 +1,9 @@
 ﻿using System.Reflection;
 using System.Web.Mvc;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
-using CrowdSourceDiscovery.Domain.Repository;
 using CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories;
-using CrowdSourceDiscovery.Interfaces.Repository;
-using CrowdSourceDiscovery.Repository;
+using CrowdSourceDiscovery.Services;
+using CrowdSourceDiscovery.Services.Interfaces;
 using CrowdSourceDiscovery.Web.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
