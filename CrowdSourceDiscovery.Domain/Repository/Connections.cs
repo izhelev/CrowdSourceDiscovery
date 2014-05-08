@@ -2,10 +2,10 @@
 using System.Linq;
 using CrowdSourceDiscovery.Contracts.Dtos.Dto;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
-using CrowdSourceDiscovery.Domain;
+using CrowdSourceDiscovery.Domain.Domain;
 using CrowdSourceDiscovery.Interfaces.Repository;
 
-namespace CrowdSourceDiscovery.Repository
+namespace CrowdSourceDiscovery.Domain.Repository
 {
     public class Connections : IConnections
     {

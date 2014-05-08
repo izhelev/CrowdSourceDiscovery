@@ -17,7 +17,7 @@ namespace CrowdSourceDiscovery.Repository
             _commentdao = commentdao;
         }
 
-        public void Save(int connectionId, List<Comment> comments)
+        public void Save(int connectionId, IList<Comment> comments)
         {
             foreach (var comment in comments)
             {
@@ -31,6 +31,8 @@ namespace CrowdSourceDiscovery.Repository
             {
                 throw new ArgumentException("Connection id is null");
             }
+
+            comment.ConnectionId = connectionId;
 
             if (comment.Id == 0)
             {

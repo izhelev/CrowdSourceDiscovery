@@ -20,7 +20,10 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
 
         public void Update(LinkDto dto)
         {
-            throw new System.NotImplementedException();
+            var link = Context.Links.First(c => c.Id == dto.Id);
+            link.Url = dto.Url;
+
+            Context.SaveChanges();
         }
 
         public void Delete(LinkDto dto)
@@ -38,8 +41,8 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
 
         public IList<LinkDto> GetByConnectionId(int connectionId)
         {
-            var links = Context.Links.Where(l => l.ConnectionId == connectionId);
-            return links.Select(link => ToDto(link)).ToList();
+            var links = Context.Links.Where(l => l.ConnectionId == connectionId).ToList();
+            return links.Select(ToDto).ToList();
         }
 
         private static LinkDto ToDto(Link link)

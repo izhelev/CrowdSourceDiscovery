@@ -41,8 +41,8 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
 
         public List<CommentDto> SelectByConnectionId(int connectionId)
         {
-            var comments = Context.Comments.Where(c => c.ConnectionId == connectionId);
-            return comments.Select(comment => ToDto(comment)).ToList();
+            var comments = Context.Comments.Where(c => c.ConnectionId == connectionId).ToList();
+            return comments.Select(ToDto).ToList();
         }
 
         private CommentDto ToDto(Comment comment)

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using CrowdSourceDiscovery.Domain;
+using CrowdSourceDiscovery.Domain.Domain;
 
 namespace CrowdSourceDiscovery.Interfaces.Repository
 {

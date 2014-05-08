@@ -36,6 +36,8 @@ namespace CrowdSourceDiscovery.Repository
             if (connectionId == 0)
                 throw new ArgumentException("Connection id is null");
 
+            link.ConnectionId = connectionId;
+
             if (link.Id == 0)
             {
                 _linkDao.Insert(ToDto(link));

@@ -1,9 +1,13 @@
 ﻿using System.Reflection;
 using System.Web.Mvc;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
+using CrowdSourceDiscovery.Domain.Repository;
 using CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories;
 using CrowdSourceDiscovery.Interfaces.Repository;
 using CrowdSourceDiscovery.Repository;
+using CrowdSourceDiscovery.Web.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using SimpleInjector;
 using SimpleInjector.Integration.Web.Mvc;
 
@@ -31,6 +35,8 @@ namespace CrowdSourceDiscovery.Web.App_Start
 
             // This is an extension method from the integration package as well.
             container.RegisterMvcIntegratedFilterProvider();
+
+            container.Register<IUserStore<ApplicationUser>>(() => new UserStore<ApplicationUser>(new ApplicationDbContext()));
 
             container.Verify();
 

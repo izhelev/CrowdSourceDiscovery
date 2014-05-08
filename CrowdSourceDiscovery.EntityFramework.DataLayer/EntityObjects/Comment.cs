@@ -4,6 +4,11 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.EntityObjects
 {
     public class Comment
     {
+        public Comment()
+        {
+            
+        }
+
         public Comment(int connectionId, string text)
         {
             ConnectionId = connectionId;

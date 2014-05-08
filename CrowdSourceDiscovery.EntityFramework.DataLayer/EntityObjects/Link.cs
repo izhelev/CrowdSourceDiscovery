@@ -2,6 +2,9 @@
 {
     public class Link
     {
+        public Link()
+        {         
+        }
 
         public Link(int connectionId, string url)
         {

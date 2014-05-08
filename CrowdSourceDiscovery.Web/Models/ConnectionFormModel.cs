@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using CrowdSourceDiscovery.Domain;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace CrowdSourceDiscovery.Web.Models
 {
     public class ConnectionFormModel
-    {      
+    {
+        public int ConnectionId { get; set; }
+
         [Required]
         [Display(Name = "Link One")]
         public string LinkOne { get; set; }

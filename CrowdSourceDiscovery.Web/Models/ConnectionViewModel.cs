@@ -1,14 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using CrowdSourceDiscovery.Domain;
 
 namespace CrowdSourceDiscovery.Web.Models
 {
     public class ConnectionViewModel
     {
-        public Uri LinkOne { get; set; }
-        public Uri LinkTwo { get; set; }
-        public List<Comment> Comments { get; set; }
 
+        public int Id { get; set; }
+        public string LinkOne { get; set; }
+        public string LinkTwo { get; set; }
+        public IList<Comment> Comments { get; set; }
     }
 }
