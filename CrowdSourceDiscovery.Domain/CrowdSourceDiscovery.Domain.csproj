@@ -34,9 +34,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Comment.cs" />
-    <Compile Include="Domain\Connection.cs" />
-    <Compile Include="Domain\Link.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
