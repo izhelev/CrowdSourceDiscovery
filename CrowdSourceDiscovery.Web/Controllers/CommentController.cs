@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Web.Mvc;
-using System.Web.Routing;
-using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
 using CrowdSourceDiscovery.Domain;
 using CrowdSourceDiscovery.Services.Interfaces;
 using CrowdSourceDiscovery.Web.Models;

@@ -11,68 +11,16 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Article one</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="form-horizontal">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.LinkOne, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.LinkOne, new { @class = "form-control"})
-                                @Html.ValidationMessageFor(model => model.LinkOne)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Article two</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="form-horizontal">
-                        <div class="form-group">
-                            @Html.LabelFor(model => model.LinkTwo, new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.TextBoxFor(model => model.LinkTwo, new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.LinkTwo)
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_ConnectionForm")
+
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-
-            <h3><small>Comment</small></h3>
-
-
-                @Html.TextAreaFor(model => model.Comment, new
-            {
-                @class = "form-control",
-                @rows = 10
-            })
-                @Html.ValidationMessageFor(model => model.Comment)
-            <div >
-                <br/>
-                    <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+            <br />
+            <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
-
-
-          
-
+    
 }
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

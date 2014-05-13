@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using CrowdSourceDiscovery.Contracts.Dtos;
@@ -83,7 +82,7 @@ namespace CrowdSourceDiscovery.Web.Controllers
          
            _connections.Save(connection);
 
-            return View();
+           return RedirectToAction("Details", new { id = connection.Id });
         }
 
         [AllowAnonymous]
