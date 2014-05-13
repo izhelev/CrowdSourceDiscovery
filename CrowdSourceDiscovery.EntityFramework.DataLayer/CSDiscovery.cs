@@ -1,9 +1,11 @@
 ﻿using System.Data.Entity;
+using CrowdSourceDiscovery.Contracts.Dtos;
 using CrowdSourceDiscovery.EntityFramework.DataLayer.EntityObjects;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CrowdSourceDiscovery.EntityFramework.DataLayer
 {
-    public class CSDiscoveryContext : DbContext
+    public class CSDiscoveryContext : IdentityDbContext<ApplicationUser>
     {
         public CSDiscoveryContext()
             : base("DefaultConnection")

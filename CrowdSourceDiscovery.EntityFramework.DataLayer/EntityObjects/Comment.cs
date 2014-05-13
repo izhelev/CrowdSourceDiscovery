@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
 
 namespace CrowdSourceDiscovery.EntityFramework.DataLayer.EntityObjects
 {
@@ -9,10 +9,11 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.EntityObjects
             
         }
 
-        public Comment(int connectionId, string text)
+        public Comment(int connectionId, string text, Guid userId)
         {
             ConnectionId = connectionId;
             Text = text;
+            UserId = userId;
         }
 
         public int Id { get; set; }
@@ -22,5 +23,7 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.EntityObjects
         {
             get; set;
         }
+
+        public Guid UserId { get; set; }
     }
 }

@@ -1,6 +1,11 @@
-﻿using System.Reflection;
+﻿using System.Net.Http;
+using System.Reflection;
+using System.Security.Principal;
+using System.Web;
 using System.Web.Mvc;
+using CrowdSourceDiscovery.Contracts.Dtos;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
+using CrowdSourceDiscovery.EntityFramework.DataLayer;
 using CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories;
 using CrowdSourceDiscovery.Services;
 using CrowdSourceDiscovery.Services.Interfaces;
@@ -19,6 +24,10 @@ namespace CrowdSourceDiscovery.Web.App_Start
             // Create the container as usual.
             var container = new Container();
 
+            //Helpers
+            container.RegisterPerWebRequest<IPrincipal>(() => 
+                HttpContext.Current.User ?? new GenericPrincipal(new GenericIdentity(string.Empty), null));
+
             // Register your types, for instance:
             container.Register<IConnections, Connections>();
             container.Register<IComments, Comments>();
@@ -35,7 +44,7 @@ namespace CrowdSourceDiscovery.Web.App_Start
             // This is an extension method from the integration package as well.
             container.RegisterMvcIntegratedFilterProvider();
 
-            container.Register<IUserStore<ApplicationUser>>(() => new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            container.Register<IUserStore<ApplicationUser>>(() => new UserStore<ApplicationUser>(new CSDiscoveryContext()));
 
             container.Verify();
 

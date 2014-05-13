@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using CrowdSourceDiscovery.Contracts.Dtos;
 using CrowdSourceDiscovery.Web.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 
 namespace CrowdSourceDiscovery.Web.Controllers
@@ -11,11 +12,6 @@ namespace CrowdSourceDiscovery.Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-       /* public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
-        {
-        }*/
-
         public AccountController(UserManager<ApplicationUser> userManager)
         {
             UserManager = userManager;
@@ -41,7 +37,7 @@ namespace CrowdSourceDiscovery.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = await UserManager.FindAsync(model.UserName, model.Password);              
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
@@ -74,7 +70,12 @@ namespace CrowdSourceDiscovery.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    DateCreated = DateTime.Now,
+                    LastLoggedTime = DateTime.Now
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

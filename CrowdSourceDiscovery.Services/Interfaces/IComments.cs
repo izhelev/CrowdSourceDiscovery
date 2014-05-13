@@ -7,6 +7,8 @@ namespace CrowdSourceDiscovery.Services.Interfaces
     {
         void Save(int connectionId, IList<Comment> comments);
         void Save(int connectionId, Comment comment);
+        Comment Get(int id);
         List<Comment> GetByConnection(int connectionId);
+
     }
 }

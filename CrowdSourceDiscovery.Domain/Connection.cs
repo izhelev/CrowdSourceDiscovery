@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CrowdSourceDiscovery.Domain.Domain
+namespace CrowdSourceDiscovery.Domain
 {
     public class Connection
     {
         public int Id { get; set; }
         public IList<Link> Links { get; set; }
         public IList<Comment> Comments { get; set; }
+
+        public Guid UserId { get; set; }
 
         public Connection()
         {

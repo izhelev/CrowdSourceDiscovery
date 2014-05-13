@@ -10,7 +10,7 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
     {
         public int Insert(CommentDto dto)
         {
-            var comment =  new Comment(dto.ConnectionId, dto.Text);
+            var comment =  new Comment(dto.ConnectionId, dto.Text, dto.UserId);
             Context.Comments.Add(comment);
             Context.SaveChanges();
 
@@ -51,7 +51,8 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
             {
                Id = comment.Id,
                ConnectionId = comment.ConnectionId,
-               Text = comment.Text
+               Text = comment.Text,
+               UserId = comment.UserId
             };
         }
     }

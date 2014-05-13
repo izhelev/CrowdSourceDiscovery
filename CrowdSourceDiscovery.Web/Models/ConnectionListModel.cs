@@ -12,6 +12,7 @@ namespace CrowdSourceDiscovery.Web.Models
         [Display(Name = "Article One")]
         public string LinkTwo { get; set; }
 
+        [Display(Name="Activity")]
         public int NumberOfComments { get; set; }
     }
 }

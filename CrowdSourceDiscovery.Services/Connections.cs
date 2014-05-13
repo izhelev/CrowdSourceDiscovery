@@ -2,7 +2,7 @@
 using System.Linq;
 using CrowdSourceDiscovery.Contracts.Dtos.Dto;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
-using CrowdSourceDiscovery.Domain.Domain;
+using CrowdSourceDiscovery.Domain;
 using CrowdSourceDiscovery.Services.Interfaces;
 
 namespace CrowdSourceDiscovery.Services
@@ -50,7 +50,8 @@ namespace CrowdSourceDiscovery.Services
         {
             return new ConnectionDto()
             {
-                Id = connection.Id,                
+                Id = connection.Id,   
+                UserId = connection.UserId
             };
         }
 
@@ -60,7 +61,8 @@ namespace CrowdSourceDiscovery.Services
             {
                 Id = connectionDto.Id,
                 Links =  _links.GetLinksByConnectionId(connectionDto.Id),
-                Comments = _comments.GetByConnection(connectionDto.Id)
+                Comments = _comments.GetByConnection(connectionDto.Id),
+                UserId = connectionDto.UserId
             };
         }
     }

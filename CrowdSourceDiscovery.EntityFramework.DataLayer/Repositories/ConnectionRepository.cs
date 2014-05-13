@@ -10,7 +10,7 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
     {
         public int Insert(ConnectionDto dto)
         {
-            var connection = new Connection();
+            var connection = new Connection(dto.UserId);
             Context.Connections.Add(connection);
            
             Context.SaveChanges();
@@ -46,7 +46,8 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
         {
             return new ConnectionDto()
             {
-                Id=connection.Id
+                Id=connection.Id,
+                UserId = connection.UserId
             };
         }
     }

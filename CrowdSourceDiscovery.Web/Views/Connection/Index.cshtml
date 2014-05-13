@@ -1,45 +1,41 @@
 ﻿@model IEnumerable<CrowdSourceDiscovery.Web.Models.ConnectionListModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Connections";
 }
+<br/>
 
-<h2>Index</h2>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkOne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LinkTwo)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NumberOfComments)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.LinkOne)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LinkTwo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfComments)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LinkOne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LinkTwo)
+                </td>
+                <td class="text-center">
+                    <span title="Number of comments"
+                          class="badge">@Html.DisplayFor(modelItem => item.NumberOfComments)</span>
+                    </td>
+                    <td>
+                        @Html.ActionLink("View", "Details", new { id = item.ConnectionId })
+                    </td>
+                </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinkOne)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinkTwo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfComments)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {  id=item.ConnectionId }) |
-            @Html.ActionLink("Details", "Details", new {  id=item.ConnectionId }) |
-            @Html.ActionLink("Delete", "Delete", new {  id=item.ConnectionId })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>

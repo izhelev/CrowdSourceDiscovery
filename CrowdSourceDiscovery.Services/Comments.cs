@@ -44,13 +44,20 @@ namespace CrowdSourceDiscovery.Services
             }
         }
 
+        public Comment Get(int id)
+        {
+           return ToEntity(_commentdao.Select(id));
+        }
+
         private static CommentDto ToDto(Comment comment)
         {
             return new CommentDto()
             {
                 Id = comment.Id,
                 ConnectionId = comment.ConnectionId,
-                Text = comment.Text
+                Text = comment.Text,
+                UserId = comment.UserId
+                
             };
         }
 
@@ -60,7 +67,8 @@ namespace CrowdSourceDiscovery.Services
             {
                 Id = commentDto.Id,
                 ConnectionId = commentDto.ConnectionId,
-                Text = commentDto.Text
+                Text = commentDto.Text,
+                UserId = commentDto.UserId
             };
         }
 

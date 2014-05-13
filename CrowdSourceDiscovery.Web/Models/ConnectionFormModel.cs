@@ -8,11 +8,13 @@ namespace CrowdSourceDiscovery.Web.Models
         public int ConnectionId { get; set; }
 
         [Required]
-        [Display(Name = "Link One")]
+        [Display(Name = "Url")]
+        [DataType(DataType.Url)]
         public string LinkOne { get; set; }
 
         [Required]
-        [Display(Name = "Link Two")]
+        [Display(Name = "Url")]
+        [DataType(DataType.Url)]
         public string LinkTwo { get; set; }
 
         [Required]

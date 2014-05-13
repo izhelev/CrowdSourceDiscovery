@@ -7,7 +7,6 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "CrowdSourceDiscovery.EntityFramework.DataLayer.CSDiscoveryContext";
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
