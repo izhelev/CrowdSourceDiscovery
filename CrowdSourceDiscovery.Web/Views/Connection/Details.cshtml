@@ -3,14 +3,21 @@
 @{
     ViewBag.Title = "Connection";
 }
-@if (Model.IsViewerCreator)
-{
-    <div class="row">
-        <div class="pull-right">
-                <a href="@Url.Action("Edit", "Connection", new {id = Model.Id})" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-pencil"> Edit </span></a>
-        </div>
+
+
+<div class="row">
+    <div class="pull-left">
+        <a href="@Url.Action("Index", "Connection")" class="btn btn-default"><span class="glyphicon glyphicon  glyphicon-arrow-left"> Back </span></a>
     </div>
-}
+    @if (Model.IsViewerCreator)
+    {
+        <div class="pull-right">
+            <a href="@Url.Action("Edit", "Connection", new {id = Model.Id})" class="btn btn-default"><span class="glyphicon glyphicon glyphicon-pencil"> Edit </span></a>
+        </div>
+    }
+
+</div>
+
 <br />
 <div class="row">
     <div class="col-md-6">
@@ -32,7 +39,7 @@
                 @Html.DisplayFor(model => model.LinkTwo)
             </div>
         </div>
-    </div>    
+    </div>
 </div>
 <div class="row">
     <div class="col-md-offset-2 col-md-8">
@@ -53,11 +60,11 @@
 
         <div class="pull-right">
             <a class="btn btn-default btn-lg" href="@Url.Action("Create", "Comment", new {id = @Model.Id})">Add Comment</a>
-        </div> 
+        </div>
     </div>
-    
-   
-</div>  
+
+
+</div>
 
 
 

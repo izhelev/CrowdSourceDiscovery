@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 
 namespace CrowdSourceDiscovery.Web.Controllers
 {
+    [Authorize]
     public class CommentController : Controller
     {
         private readonly IConnections _connections;
