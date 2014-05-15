@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using CrowdSourceDiscovery.Contracts.Dtos;
+using CrowdSourceDiscovery.EntityFramework.DataLayer;
 using CrowdSourceDiscovery.Web.Models;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 
 namespace CrowdSourceDiscovery.Web.Controllers
@@ -74,17 +78,27 @@ namespace CrowdSourceDiscovery.Web.Controllers
                 {
                     UserName = model.UserName,
                     DateCreated = DateTime.Now,
-                    LastLoggedTime = DateTime.Now
+                    LastLoggedTime = DateTime.Now,
+                    Email = model.Email
                 };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
+
+                var context = new CSDiscoveryContext();
+                var userIdentity = context.Users.FirstOrDefault(c => c.Email == model.Email);
+
+                if (userIdentity == null)
                 {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    var result = await UserManager.CreateAsync(user, model.Password);
+                    if (result.Succeeded)
+                    {
+                        await SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Index", "Home");
+                    }
+
+                     AddErrors(result);
                 }
                 else
                 {
-                    AddErrors(result);
+                    ModelState.AddModelError("", "Email address already exists");
                 }
             }
 

@@ -10,6 +10,7 @@ namespace CrowdSourceDiscovery.Contracts.Dtos
         public string SecondName { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? LastLoggedTime { get; set; }
+        public string Email { get; set; }
 
         public string FullName()
         {
