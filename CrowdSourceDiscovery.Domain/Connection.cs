@@ -29,8 +29,7 @@ namespace CrowdSourceDiscovery.Domain
 
         public void UpdateFirstLink(Link link)
         {
-            var firstLink = GetFirstLink();
-            firstLink.Url = link.Url;
+            UpdateLinkWithLink(link, GetFirstLink());
         }
 
         public Link GetSecondLink()
@@ -44,8 +43,13 @@ namespace CrowdSourceDiscovery.Domain
 
         public void UpdateSecondLink(Link link)
         {
-            var secondLink = GetSecondLink();
-            secondLink.Url = link.Url;
+            UpdateLinkWithLink(link, GetSecondLink());
+        }
+
+        private void UpdateLinkWithLink(Link newLink, Link existingLink)
+        {
+            existingLink.Url = newLink.Url;
+            existingLink.Title = newLink.Title;
         }
 
         public void AddComment(Comment comment)

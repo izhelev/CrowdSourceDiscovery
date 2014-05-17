@@ -6,11 +6,11 @@ namespace CrowdSourceDiscovery.Web.Models
     {
         public int ConnectionId { get; set; }
 
-        [Display(Name="Article One")]
-        public string LinkOne { get; set; }
+        [Display(Name="First article")]
+        public string LinkOneTitle { get; set; }
 
-        [Display(Name = "Article One")]
-        public string LinkTwo { get; set; }
+        [Display(Name = "Second article")]
+        public string LinkTwoTitle { get; set; }
 
         [Display(Name="Activity")]
         public int NumberOfComments { get; set; }

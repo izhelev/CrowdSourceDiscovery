@@ -31,10 +31,10 @@ namespace CrowdSourceDiscovery.Web.Controllers
             var models = connections.Select(connection => new ConnectionListModel()
             {
                 ConnectionId = connection.Id,
-                LinkOne = connection.GetFirstLink().Url.AbsoluteUri,
-                LinkTwo = connection.GetSecondLink().Url.AbsoluteUri,
+                LinkOneTitle = connection.GetFirstLink().Title,
+                LinkTwoTitle = connection.GetSecondLink().Title,
                 NumberOfComments = connection.Comments.Count
-            }).ToList();
+            }).OrderByDescending(m=> m.NumberOfComments).ToList();
 
             return View(models);
         }
@@ -51,8 +51,8 @@ namespace CrowdSourceDiscovery.Web.Controllers
             var currentUserId = new Guid(User.Identity.GetUserId());
             var connection = new Connection {UserId = currentUserId};
             connection.AddComment(new Comment(connectionModel.Comment, currentUserId));
-            connection.AddLinks(new Link(connectionModel.LinkOne));
-            connection.AddLinks(new Link(connectionModel.LinkTwo));
+            connection.AddLinks(new Link(connectionModel.LinkOne, connectionModel.LinkOneTitle));
+            connection.AddLinks(new Link(connectionModel.LinkTwo, connectionModel.LinkTwoTitle));
             _connections.Save(connection);
 
             return RedirectToAction("Details", new { id=connection.Id});
@@ -66,6 +66,8 @@ namespace CrowdSourceDiscovery.Web.Controllers
                 ConnectionId = connection.Id,
                 LinkOne = connection.GetFirstLink().Url.AbsoluteUri,
                 LinkTwo = connection.GetSecondLink().Url.AbsoluteUri,
+                LinkOneTitle = connection.GetFirstLink().Title,
+                LinkTwoTitle = connection.GetSecondLink().Title,             
                 Comment = connection.GetOriginalComment().Text           
             };
 
@@ -77,8 +79,8 @@ namespace CrowdSourceDiscovery.Web.Controllers
         {
            var connection = _connections.GetConnection(model.ConnectionId);
            connection.SaveOriginalComment(model.Comment);
-           connection.UpdateFirstLink(new Link(model.LinkOne)); 
-           connection.UpdateSecondLink(new Link(model.LinkTwo)); 
+           connection.UpdateFirstLink(new Link(model.LinkOne, model.LinkOneTitle)); 
+           connection.UpdateSecondLink(new Link(model.LinkTwo, model.LinkTwoTitle)); 
          
            _connections.Save(connection);
 
@@ -99,6 +101,8 @@ namespace CrowdSourceDiscovery.Web.Controllers
                  Id = connection.Id,
                  LinkOne = connection.GetFirstLink().Url.AbsoluteUri,
                  LinkTwo = connection.GetSecondLink().Url.AbsoluteUri,
+                 LinkOneTitle = connection.GetFirstLink().Title,
+                 LinkTwoTitle = connection.GetSecondLink().Title,
                  IsViewerCreator = _permissionHelper.CheckCurrentViewerIsUser(connection.UserId)
  
             };

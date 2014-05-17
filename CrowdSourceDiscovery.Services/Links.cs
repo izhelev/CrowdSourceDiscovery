@@ -55,7 +55,9 @@ namespace CrowdSourceDiscovery.Services
             {
                 Id = link.Id,
                 ConnectionId = link.ConnectionId,
-                Url = link.Url.AbsoluteUri
+                Url = link.Url.AbsoluteUri,
+                Title = link.Title
+
             };
         }
 
@@ -65,7 +67,8 @@ namespace CrowdSourceDiscovery.Services
             {
                 Id = linkDto.Id,
                 ConnectionId = linkDto.ConnectionId,
-                Url = new Uri(linkDto.Url)
+                Url = new Uri(linkDto.Url),
+                Title = linkDto.Title
             };
         }
 

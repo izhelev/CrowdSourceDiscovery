@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using CrowdSourceDiscovery.Contracts.Dtos.Dto;
 using CrowdSourceDiscovery.Contracts.Dtos.Interfaces.Dao;
@@ -10,7 +11,7 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
     {
         public int Insert(LinkDto dto)
         {
-            var newLink = new Link(dto.ConnectionId, dto.Url);
+            var newLink = new Link(dto.ConnectionId, dto.Url, dto.Title);
             Context.Links.Add(newLink);
 
             Context.SaveChanges();
@@ -22,13 +23,14 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
         {
             var link = Context.Links.First(c => c.Id == dto.Id);
             link.Url = dto.Url;
+            link.Title = dto.Title;
 
             Context.SaveChanges();
         }
 
         public void Delete(LinkDto dto)
         {
-            var toDelete = new Link(dto.ConnectionId, dto.Url);
+            var toDelete = new Link(dto.ConnectionId, dto.Url, dto.Title);
             Context.Links.Remove(toDelete);
 
             Context.SaveChanges();          
@@ -51,7 +53,8 @@ namespace CrowdSourceDiscovery.EntityFramework.DataLayer.Repositories
             {
                 Id = link.Id,
                 ConnectionId = link.ConnectionId,
-                Url = link.Url
+                Url = link.Url,
+                Title = link.Title
             };
         }
 

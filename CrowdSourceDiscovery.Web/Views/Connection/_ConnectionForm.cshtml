@@ -17,6 +17,14 @@
                                 @Html.ValidationMessageFor(model => model.LinkOne)
                             </div>
                         </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LinkOneTitle, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.LinkOneTitle, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LinkOneTitle)
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -35,7 +43,15 @@
                                 @Html.ValidationMessageFor(model => model.LinkTwo)
                             </div>
                         </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LinkTwoTitle, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.LinkTwoTitle, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.LinkTwoTitle)
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

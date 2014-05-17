@@ -8,12 +8,14 @@ namespace CrowdSourceDiscovery.Web.Models
     {
 
         public int Id { get; set; }
-        [Display(Name = "Article one")]
+        [Display(Name = "First article")]
         public string LinkOne { get; set; }
-        [Display(Name = "Article two")]
+        [Display(Name = "Second article")]
         public string LinkTwo { get; set; }
         public bool IsViewerCreator { get; set; }
         public IList<ConnectionViewCommentModel> Comments { get; set; }
+        public string LinkOneTitle { get; set; }
+        public string LinkTwoTitle { get; set; }
     }
 
     public class ConnectionViewCommentModel
