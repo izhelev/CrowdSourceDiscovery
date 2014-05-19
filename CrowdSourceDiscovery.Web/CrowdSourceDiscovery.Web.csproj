@@ -341,6 +341,7 @@
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Create.cshtml" />
     <Content Include="Views\Connection\_ConnectionForm.cshtml" />
+    <Content Include="Views\Shared\_ScriptFooter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
