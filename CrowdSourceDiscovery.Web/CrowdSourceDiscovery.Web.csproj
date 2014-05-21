@@ -223,7 +223,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helper\Class1.cs" />
+    <Compile Include="Helper\PermissionHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommentFormModel.cs" />
     <Compile Include="Models\ConnectionFormModel.cs" />
@@ -342,6 +342,7 @@
     <Content Include="Views\Comment\Create.cshtml" />
     <Content Include="Views\Connection\_ConnectionForm.cshtml" />
     <Content Include="Views\Shared\_ScriptFooter.cshtml" />
+    <Content Include="Views\Shared\_Feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,12 +2,13 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div class="jumbotron bg">
     <h1>Explore, Connect, Discover</h1>
     <p class="lead">Empowering the intellectual community to see complex connections in science by crowd sourcing the process of discovery.</p>
-</div>
 
-<div class="row">
-    <div class="col-md-6 text-center"><a href="@Url.Action("Index", "Connection")" class="btn btn-primary btn-xlg ">Discover</a></div>
-    <div class="col-md-6 text-center"><a href="@Url.Action("Create", "Connection")" class="btn btn-success btn-xlg">Connect</a></div>
+    <br /><br />
+    <div class="row">
+        <div class="col-md-6 text-center"><a href="@Url.Action("Index", "Connection")" class="btn btn-primary btn-xlg ">Discover</a></div>
+        <div class="col-md-6 text-center"><a href="@Url.Action("Create", "Connection")" class="btn btn-success btn-xlg">Connect</a></div>
+    </div>
 </div>
