@@ -216,6 +216,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ConnectionController.cs" />
@@ -229,10 +230,12 @@
     <Compile Include="Models\ConnectionFormModel.cs" />
     <Compile Include="Models\ConnectionListModel.cs" />
     <Compile Include="Models\ConnectionViewModel.cs" />
+    <Compile Include="Models\ExternalMonitoringModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\crowdsource_article_01.jpg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -341,8 +344,8 @@
     <Content Include="Views\Comment\Edit.cshtml" />
     <Content Include="Views\Comment\Create.cshtml" />
     <Content Include="Views\Connection\_ConnectionForm.cshtml" />
-    <Content Include="Views\Shared\_ScriptFooter.cshtml" />
     <Content Include="Views\Shared\_Feedback.cshtml" />
+    <Content Include="Views\Statistics\ExternalMonitoring.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

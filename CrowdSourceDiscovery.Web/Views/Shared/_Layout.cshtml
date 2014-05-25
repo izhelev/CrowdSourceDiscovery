@@ -39,7 +39,7 @@
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
-        @Html.Partial("_ScriptFooter");
+        @Html.Action("ExternalMonitoring", "Statistics")
         @Html.Partial("_Feedback")
     </body>
 </html>
