@@ -1,0 +1,17 @@
+﻿@model IEnumerable<CrowdSourceDiscovery.Web.Models.ConnectionListModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+@Html.Partial("~/Views/Shared/_SearchWidget.cshtml")
+<br />
+<br />
+@if (Model.Count() > 0)
+{
+    @Html.Partial("~/Views/Connection/_ConnectionList.cshtml", Model)
+}
+else
+{
+    <h4>No results..</h4>
+}

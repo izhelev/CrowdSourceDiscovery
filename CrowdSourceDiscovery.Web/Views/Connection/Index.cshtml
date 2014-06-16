@@ -5,37 +5,8 @@
 }
 <br/>
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.LinkOneTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LinkTwoTitle)
-            </th>
-            <th class="text-center">
-                @Html.DisplayNameFor(model => model.NumberOfComments)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LinkOneTitle)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LinkTwoTitle)
-                </td>
-                <td class="text-center">
-                    <span title="Number of comments"
-                          class="badge">@Html.DisplayFor(modelItem => item.NumberOfComments)</span>
-                    </td>
-                    <td>
-                        @Html.ActionLink("View", "Details", new { id = item.ConnectionId })
-                    </td>
-                </tr>
-        }
-
-    </table>
+@Html.Partial("~/Views/Shared/_SearchWidget.cshtml")
+<br />
+<br />
+<h3>Hot discoveries</h3>
+@Html.Partial("_ConnectionList", Model)
