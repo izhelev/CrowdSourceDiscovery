@@ -292,7 +292,9 @@
     <Content Include="Content\Site.less" />
     <Content Include="Content\bootstrap\Custom\variables-custom.less" />
     <Content Include="Content\bootstrap\Custom\buttons-custom.less" />
+    <None Include="Properties\PublishProfiles\csdiscovery - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\csdiscovery - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\csdiscovery - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\csdiscovery - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
